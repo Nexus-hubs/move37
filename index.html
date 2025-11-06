@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>move37 - AI Concepts Blog</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+            background: #f5f1eb;
+            color: #8b7355;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+            padding-bottom: 30px;
+            border-bottom: 2px solid #d4c5b9;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 300;
+            color: #6b5d4f;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: #9b8a7a;
+            font-weight: 300;
+            font-style: italic;
+        }
+
+        .article {
+            background: #faf8f5;
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e8e0d8;
+        }
+
+        .article-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e8e0d8;
+        }
+
+        .article-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 8px;
+            object-fit: cover;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .article-title {
+            font-size: 2rem;
+            color: #6b5d4f;
+            font-weight: 400;
+            flex: 1;
+        }
+
+        .article-content {
+            color: #7a6b5a;
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        .article-content h2 {
+            color: #6b5d4f;
+            font-size: 1.5rem;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-weight: 400;
+        }
+
+        .article-content h3 {
+            color: #7a6b5a;
+            font-size: 1.2rem;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            font-weight: 400;
+        }
+
+        .article-content p {
+            margin-bottom: 18px;
+        }
+
+        .article-content ul, .article-content ol {
+            margin-left: 25px;
+            margin-bottom: 18px;
+        }
+
+        .article-content li {
+            margin-bottom: 10px;
+        }
+
+        .article-content code {
+            background: #ede8e0;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            color: #6b5d4f;
+        }
+
+        .article-content pre {
+            background: #ede8e0;
+            padding: 15px;
+            border-radius: 6px;
+            overflow-x: auto;
+            margin: 20px 0;
+            border-left: 3px solid #d4c5b9;
+        }
+
+        .article-content pre code {
+            background: none;
+            padding: 0;
+        }
+
+        .highlight-box {
+            background: #f5f1eb;
+            border-left: 4px solid #d4c5b9;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+
+        .splash-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin: 30px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 2px solid #d4c5b9;
+            color: #9b8a7a;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .article {
+                padding: 25px;
+            }
+
+            .article-title {
+                font-size: 1.5rem;
+            }
+
+            .article-header {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>move37</h1>
+            <p class="subtitle">A blog about AI concepts and terms</p>
+        </header>
+
+        <!-- MCP Article -->
+        <article class="article">
+            <div class="article-header">
+                <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=400&fit=crop" alt="MCP" class="article-image">
+                <h2 class="article-title">Model Context Protocol (MCP)</h2>
+            </div>
+            <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=1200&h=400&fit=crop" alt="AI Context" class="splash-image">
+            <div class="article-content">
+                <p>
+                    The <strong>Model Context Protocol (MCP)</strong> is a standardized framework designed to enhance how AI models interact with external context and information sources. It provides a structured approach for models to access, process, and utilize contextual data effectively.
+                </p>
+
+                <h3>What is MCP?</h3>
+                <p>
+                    MCP serves as a bridge between AI models and various data sources, enabling more sophisticated and context-aware AI applications. It defines protocols for how models can request, receive, and integrate contextual information from databases, APIs, knowledge bases, and other external systems.
+                </p>
+
+                <div class="highlight-box">
+                    <strong>Key Concept:</strong> MCP allows AI models to be more than just language processors—they become intelligent systems that can dynamically access and reason about real-world information.
+                </div>
+
+                <h3>Core Components</h3>
+                <ul>
+                    <li><strong>Context Providers:</strong> Systems that supply relevant information to models</li>
+                    <li><strong>Protocol Handlers:</strong> Components that manage the communication between models and context sources</li>
+                    <li><strong>Context Processors:</strong> Modules that filter, format, and prepare context for model consumption</li>
+                    <li><strong>Integration Layer:</strong> The interface that connects models with external data systems</li>
+                </ul>
+
+                <h3>Benefits</h3>
+                <p>
+                    MCP enables AI systems to maintain up-to-date information, access domain-specific knowledge, and provide more accurate and relevant responses. It's particularly valuable for applications requiring real-time data, specialized expertise, or integration with existing enterprise systems.
+                </p>
+
+                <h3>Use Cases</h3>
+                <ul>
+                    <li>Enterprise AI assistants that need access to company databases</li>
+                    <li>Research tools that integrate with academic databases</li>
+                    <li>Customer service bots connected to product catalogs</li>
+                    <li>Financial analysis systems with real-time market data</li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- Transformers Article -->
+        <article class="article">
+            <div class="article-header">
+                <img src="https://images.unsplash.com/photo-1555255707-c07966088b7b?w=400&h=400&fit=crop" alt="Transformers" class="article-image">
+                <h2 class="article-title">Transformers Architecture</h2>
+            </div>
+            <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=1200&h=400&fit=crop" alt="Neural Networks" class="splash-image">
+            <div class="article-content">
+                <p>
+                    The <strong>Transformer architecture</strong>, introduced in the landmark paper "Attention Is All You Need" (2017), revolutionized natural language processing and became the foundation for modern AI systems like GPT, BERT, and countless other models.
+                </p>
+
+                <h3>The Innovation</h3>
+                <p>
+                    Transformers replaced recurrent neural networks (RNNs) and convolutional neural networks (CNNs) for sequence processing by introducing the <strong>self-attention mechanism</strong>. This allows models to process entire sequences in parallel and understand relationships between distant elements in the input.
+                </p>
+
+                <div class="highlight-box">
+                    <strong>Revolutionary Aspect:</strong> Unlike RNNs that process sequences sequentially, transformers can process all positions simultaneously, dramatically improving training speed and enabling models to capture long-range dependencies.
+                </div>
+
+                <h3>Key Components</h3>
+                <ul>
+                    <li><strong>Self-Attention Mechanism:</strong> Allows each position to attend to all other positions in the sequence</li>
+                    <li><strong>Multi-Head Attention:</strong> Multiple attention mechanisms running in parallel, each learning different aspects of relationships</li>
+                    <li><strong>Positional Encoding:</strong> Injects information about the position of tokens in the sequence</li>
+                    <li><strong>Feed-Forward Networks:</strong> Processes the attended information</li>
+                    <li><strong>Layer Normalization:</strong> Stabilizes training and improves performance</li>
+                    <li><strong>Residual Connections:</strong> Enables deep networks to train effectively</li>
+                </ul>
+
+                <h3>How It Works</h3>
+                <p>
+                    The transformer uses an encoder-decoder architecture. The encoder processes input sequences and creates rich representations, while the decoder generates output sequences. The attention mechanism computes relationships between all pairs of positions, allowing the model to understand context and dependencies.
+                </p>
+
+                <h3>Impact</h3>
+                <p>
+                    Transformers have enabled breakthroughs in:
+                </p>
+                <ul>
+                    <li>Large language models (GPT, PaLM, LLaMA)</li>
+                    <li>Computer vision (Vision Transformers)</li>
+                    <li>Multimodal AI (CLIP, DALL-E)</li>
+                    <li>Code generation (GitHub Copilot, Codex)</li>
+                    <li>Translation and summarization systems</li>
+                </ul>
+
+                <h3>Modern Evolution</h3>
+                <p>
+                    Today's transformer variants include innovations like sparse attention, mixture-of-experts architectures, and efficient attention mechanisms that reduce computational costs while maintaining performance. The architecture continues to evolve, pushing the boundaries of what AI can achieve.
+                </p>
+            </div>
+        </article>
+
+        <!-- Multi-Agent Frameworks Article -->
+        <article class="article">
+            <div class="article-header">
+                <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&h=400&fit=crop" alt="Multi-Agent" class="article-image">
+                <h2 class="article-title">Multi-Agent Frameworks</h2>
+            </div>
+            <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&h=400&fit=crop" alt="Collaboration" class="splash-image">
+            <div class="article-content">
+                <p>
+                    <strong>Multi-agent frameworks</strong> represent a paradigm shift in AI system design, moving from single monolithic models to collaborative systems of specialized agents working together to solve complex problems.
+                </p>
+
+                <h3>What Are Multi-Agent Systems?</h3>
+                <p>
+                    Multi-agent systems consist of multiple autonomous AI agents, each with specific capabilities and roles, that communicate, coordinate, and collaborate to achieve common or individual goals. This approach mirrors how human teams work, with each member contributing their expertise.
+                </p>
+
+                <div class="highlight-box">
+                    <strong>Core Philosophy:</strong> Instead of building one super-intelligent agent, create a team of specialized agents that can collaborate, debate, and combine their strengths to solve problems more effectively.
+                </div>
+
+                <h3>Key Concepts</h3>
+                <ul>
+                    <li><strong>Agent Specialization:</strong> Each agent has a specific role (planner, executor, validator, researcher, etc.)</li>
+                    <li><strong>Communication Protocols:</strong> Standardized ways for agents to exchange information</li>
+                    <li><strong>Coordination Mechanisms:</strong> Systems that manage agent interactions and prevent conflicts</li>
+                    <li><strong>Task Decomposition:</strong> Breaking complex problems into subtasks for different agents</li>
+                    <li><strong>Consensus Building:</strong> Methods for agents to agree on solutions or decisions</li>
+                </ul>
+
+                <h3>Popular Frameworks</h3>
+                
+                <h3>1. LangGraph / LangChain Multi-Agent</h3>
+                <p>
+                    Built on top of LangChain, this framework enables developers to create agent workflows where multiple agents can collaborate, pass messages, and work on different aspects of a problem.
+                </p>
+
+                <h3>2. AutoGen (Microsoft)</h3>
+                <p>
+                    Microsoft's AutoGen framework allows multiple agents to converse and collaborate. Agents can be configured with different roles, capabilities, and communication patterns, enabling sophisticated multi-agent conversations.
+                </p>
+
+                <h3>3. CrewAI</h3>
+                <p>
+                    CrewAI models agents as team members with roles, goals, and backstories. It emphasizes collaboration and task delegation, making it easy to build teams of AI agents that work together.
+                </p>
+
+                <h3>4. Swarm / Swarm Intelligence</h3>
+                <p>
+                    Inspired by biological swarms, these frameworks enable large numbers of simple agents to achieve complex behaviors through local interactions and emergent intelligence.
+                </p>
+
+                <h3>Benefits of Multi-Agent Systems</h3>
+                <ul>
+                    <li><strong>Modularity:</strong> Easier to develop, test, and maintain individual components</li>
+                    <li><strong>Scalability:</strong> Can add or remove agents as needed</li>
+                    <li><strong>Robustness:</strong> System continues working even if one agent fails</li>
+                    <li><strong>Specialization:</strong> Each agent can be optimized for its specific task</li>
+                    <li><strong>Parallel Processing:</strong> Multiple agents can work simultaneously</li>
+                    <li><strong>Diversity:</strong> Different agents can bring different perspectives</li>
+                </ul>
+
+                <h3>Common Agent Roles</h3>
+                <ul>
+                    <li><strong>Planner:</strong> Breaks down tasks and creates execution plans</li>
+                    <li><strong>Executor:</strong> Performs actions and implements plans</li>
+                    <li><strong>Validator:</strong> Checks results for correctness and quality</li>
+                    <li><strong>Researcher:</strong> Gathers information and conducts analysis</li>
+                    <li><strong>Coordinator:</strong> Manages agent interactions and workflow</li>
+                    <li><strong>Critic:</strong> Reviews and provides feedback on outputs</li>
+                </ul>
+
+                <h3>Challenges</h3>
+                <p>
+                    While powerful, multi-agent systems face challenges including:
+                </p>
+                <ul>
+                    <li>Coordination overhead and communication costs</li>
+                    <li>Potential for conflicts between agent decisions</li>
+                    <li>Complexity in debugging distributed systems</li>
+                    <li>Ensuring consistent behavior across agents</li>
+                    <li>Managing shared resources and state</li>
+                </ul>
+
+                <h3>Future Directions</h3>
+                <p>
+                    Multi-agent frameworks are evolving toward more sophisticated coordination mechanisms, better communication protocols, and improved methods for agents to learn from each other. As these systems mature, they promise to enable more capable, flexible, and robust AI applications.
+                </p>
+            </div>
+        </article>
+
+        <footer>
+            <p>move37 - Exploring AI concepts and terms</p>
+            <p style="margin-top: 10px; font-size: 0.85rem;">© 2024 | Built with curiosity</p>
+        </footer>
+    </div>
+</body>
+</html>
+
