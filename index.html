@@ -17,6 +17,7 @@
             color: #F2E8D5;
             line-height: 1.6;
             min-height: 100vh;
+            scroll-behavior: smooth;
         }
 
         .container {
@@ -158,6 +159,43 @@
             border: 1px solid #F2E8D5;
         }
 
+        .table-of-contents {
+            background: #1a1a1a;
+            border-radius: 12px;
+            padding: 30px 40px;
+            margin-bottom: 40px;
+            border: 1px solid #F2E8D5;
+        }
+
+        .table-of-contents h2 {
+            font-size: 1.8rem;
+            color: #F2E8D5;
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+
+        .table-of-contents ul {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .table-of-contents li {
+            margin-bottom: 12px;
+        }
+
+        .table-of-contents a {
+            color: #F2E8D5;
+            text-decoration: none;
+            font-size: 1.1rem;
+            display: block;
+            padding: 8px 0;
+            transition: opacity 0.2s;
+        }
+
+        .table-of-contents a:hover {
+            opacity: 0.7;
+        }
+
         footer {
             text-align: center;
             margin-top: 60px;
@@ -195,8 +233,142 @@
             <p class="subtitle">A blog about AI concepts and terms</p>
         </header>
 
+        <!-- Table of Contents -->
+        <nav class="table-of-contents">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#compute-inference">→ The Importance of Compute and Fast Inference in AI</a></li>
+                <li><a href="#transformers">→ Transformers Architecture</a></li>
+                <li><a href="#cursor">→ Cursor 2.0: Multi-Agent AI Code Editor</a></li>
+                <li><a href="#mcp">→ Model Context Protocol (MCP)</a></li>
+                <li><a href="#multi-agent">→ Multi-Agent Frameworks</a></li>
+            </ul>
+        </nav>
+
+        <!-- Compute and Inference Article -->
+        <article class="article" id="compute-inference">
+            <div class="article-header">
+                <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&h=400&fit=crop" alt="Compute and Inference" class="article-image">
+                <h2 class="article-title">The Importance of Compute and Fast Inference in AI</h2>
+            </div>
+            <img src="https://images.unsplash.com/photo-1639322537228-f710d846310a?w=1200&h=400&fit=crop" alt="High Performance Computing" class="splash-image">
+            <div class="article-content">
+                <p>
+                    In the rapidly evolving landscape of artificial intelligence, <strong>compute power</strong> and <strong>fast inference</strong> have emerged as two of the most critical factors determining the success and practical utility of AI systems. While model architecture and training techniques receive significant attention, the ability to efficiently deploy and run AI models at scale is what ultimately transforms research breakthroughs into real-world applications.
+                </p>
+
+                <h3>The Compute Revolution in AI</h3>
+                <p>
+                    The dramatic progress in AI capabilities over the past decade has been closely tied to the exponential increase in available compute resources. Training modern large language models like GPT-4, Claude, or Gemini requires thousands of specialized GPUs running for months, consuming millions of dollars in compute costs. This scale of computation has become a defining characteristic of state-of-the-art AI systems.
+                </p>
+
+                <div class="highlight-box">
+                    <strong>Key Insight:</strong> The effectiveness of AI models scales predictably with compute—more compute enables larger models, more training data, and longer training times, all of which generally lead to better performance. This relationship, known as scaling laws, has driven the race for computational resources in AI development.
+                </div>
+
+                <h3>Why Compute Matters</h3>
+                <ul>
+                    <li><strong>Model Scale:</strong> Larger models with billions or trillions of parameters require massive computational resources for training. The transformer architecture's effectiveness scales with parameter count, making compute the limiting factor for capability improvements.</li>
+                    <li><strong>Training Time:</strong> Access to greater compute resources dramatically reduces training time, enabling faster iteration and experimentation. What might take months on limited hardware can be accomplished in days or weeks with sufficient compute.</li>
+                    <li><strong>Data Processing:</strong> Training on massive datasets (often terabytes or petabytes of data) requires enormous computational capacity for data preprocessing, augmentation, and feeding into training pipelines.</li>
+                    <li><strong>Research Velocity:</strong> Organizations with access to superior compute infrastructure can experiment more rapidly, test more hypotheses, and achieve breakthroughs faster than their competitors.</li>
+                </ul>
+
+                <h3>The Critical Role of Fast Inference</h3>
+                <p>
+                    While training compute gets significant attention, <strong>inference efficiency</strong> is equally—if not more—important for practical AI applications. Inference refers to the process of running a trained model to generate predictions or outputs. Every time you interact with ChatGPT, ask Claude a question, or use an AI-powered feature, you're triggering an inference operation.
+                </p>
+
+                <h3>Why Inference Speed Matters</h3>
+                <ul>
+                    <li><strong>User Experience:</strong> Fast inference is essential for responsive AI applications. Users expect near-instantaneous responses from AI assistants, recommendation systems, and search engines. Delays measured in seconds can dramatically impact user satisfaction and adoption.</li>
+                    <li><strong>Scalability:</strong> Serving millions or billions of users requires efficient inference. If each request takes too long or consumes too many resources, the system becomes prohibitively expensive or simply cannot scale to meet demand.</li>
+                    <li><strong>Cost Efficiency:</strong> Inference costs often dominate the total cost of AI systems in production. A model that generates responses twice as fast can serve twice as many users with the same hardware, directly impacting profitability.</li>
+                    <li><strong>Real-Time Applications:</strong> Many AI applications—autonomous vehicles, robotics, real-time translation, or medical diagnosis—require extremely low latency. Milliseconds matter when safety or immediate decision-making is involved.</li>
+                    <li><strong>Energy Consumption:</strong> Faster, more efficient inference reduces energy consumption and environmental impact, an increasingly important consideration for large-scale AI deployments.</li>
+                </ul>
+
+                <h3>Techniques for Fast Inference</h3>
+                <p>
+                    The AI industry has developed numerous techniques to accelerate inference without sacrificing model quality:
+                </p>
+
+                <h4>1. Model Optimization</h4>
+                <ul>
+                    <li><strong>Quantization:</strong> Reducing precision from 32-bit or 16-bit floating point to 8-bit or even 4-bit integers can dramatically speed up inference while maintaining acceptable accuracy.</li>
+                    <li><strong>Pruning:</strong> Removing redundant or low-impact parameters from trained models reduces model size and computational requirements.</li>
+                    <li><strong>Knowledge Distillation:</strong> Training smaller "student" models to mimic the behavior of larger "teacher" models, achieving similar performance with fewer parameters.</li>
+                </ul>
+
+                <h4>2. Hardware Acceleration</h4>
+                <ul>
+                    <li><strong>Specialized AI Chips:</strong> GPUs, TPUs (Tensor Processing Units), and custom AI accelerators are optimized for the matrix operations that dominate neural network inference.</li>
+                    <li><strong>Edge Computing:</strong> Running inference on device (phones, IoT devices, embedded systems) eliminates network latency and enables offline operation.</li>
+                    <li><strong>Distributed Inference:</strong> Spreading inference workload across multiple machines or specialized hardware units to handle high-throughput scenarios.</li>
+                </ul>
+
+                <h4>3. Architectural Innovations</h4>
+                <ul>
+                    <li><strong>Efficient Attention Mechanisms:</strong> Techniques like sparse attention, linear attention, and Flash Attention reduce the quadratic complexity of standard transformer attention.</li>
+                    <li><strong>Mixture of Experts (MoE):</strong> Using specialized sub-models and activating only relevant ones for each input reduces computational requirements.</li>
+                    <li><strong>Speculative Decoding:</strong> Using smaller, faster models to draft outputs that are then verified by larger models, achieving speedups in text generation.</li>
+                </ul>
+
+                <h3>The Compute-Inference Trade-off</h3>
+                <p>
+                    A fundamental tension exists between model capability and inference efficiency. Larger, more capable models generally require more compute for inference. This creates important strategic decisions:
+                </p>
+                <ul>
+                    <li>Deploy the largest possible model for maximum quality, accepting higher latency and costs?</li>
+                    <li>Use a smaller, faster model that provides "good enough" results at much lower cost?</li>
+                    <li>Implement a tiered approach, using fast models for simple queries and powerful models for complex ones?</li>
+                </ul>
+
+                <div class="highlight-box">
+                    <strong>The Future Vision:</strong> The ideal AI system combines both aspects—leveraging massive compute to train increasingly capable models while simultaneously optimizing them for efficient inference. Companies that excel at both dimensions gain a significant competitive advantage.
+                </div>
+
+                <h3>The Economics of Compute and Inference</h3>
+                <p>
+                    The cost structure of AI systems heavily influences what's possible:
+                </p>
+                <ul>
+                    <li><strong>Training Costs:</strong> One-time expenses that can reach tens of millions of dollars for frontier models but are amortized across all future usage.</li>
+                    <li><strong>Inference Costs:</strong> Ongoing expenses that scale with usage. For popular AI services, inference costs can quickly exceed training costs.</li>
+                    <li><strong>Infrastructure Investment:</strong> Building and maintaining data centers with specialized AI hardware requires enormous capital investment.</li>
+                </ul>
+
+                <h3>Industry Impact and Competition</h3>
+                <p>
+                    Access to compute resources and inference efficiency have become key competitive factors in the AI industry:
+                </p>
+                <ul>
+                    <li>Tech giants like Google, Microsoft, and Meta invest billions in AI infrastructure</li>
+                    <li>Startups focus on inference optimization to compete against larger players</li>
+                    <li>Cloud providers compete on AI-optimized hardware offerings</li>
+                    <li>Chip manufacturers race to develop faster, more efficient AI accelerators</li>
+                </ul>
+
+                <h3>Looking Forward</h3>
+                <p>
+                    The importance of compute and inference optimization will only grow as AI becomes more pervasive. Future developments will likely include:
+                </p>
+                <ul>
+                    <li><strong>More Efficient Architectures:</strong> New model designs that achieve better performance per compute unit</li>
+                    <li><strong>Better Hardware:</strong> Continued advances in specialized AI chips and accelerators</li>
+                    <li><strong>Algorithmic Breakthroughs:</strong> Novel training and inference techniques that reduce computational requirements</li>
+                    <li><strong>Distributed AI:</strong> Spreading computation across devices, edge servers, and cloud infrastructure</li>
+                    <li><strong>Sustainable AI:</strong> Focus on energy-efficient compute to reduce environmental impact</li>
+                </ul>
+
+                <p>
+                    Understanding the role of compute in training and the critical importance of fast inference is essential for anyone working with or deploying AI systems. These factors often determine the difference between a promising research demo and a practical, scalable AI application that can serve millions of users effectively and economically.
+                </p>
+            </div>
+        </article>
+
         <!-- Transformers Article -->
-        <article class="article">
+        <article class="article" id="transformers">
             <div class="article-header">
                 <img src="https://images.unsplash.com/photo-1555255707-c07966088b7b?w=400&h=400&fit=crop" alt="Transformers" class="article-image">
                 <h2 class="article-title">Transformers Architecture</h2>
@@ -251,7 +423,7 @@
         </article>
 
         <!-- Cursor 2.0 and Multi-Agent Frameworks Article -->
-        <article class="article">
+        <article class="article" id="cursor">
             <div class="article-header">
                 <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=400&h=400&fit=crop" alt="Cursor 2.0" class="article-image">
                 <h2 class="article-title">Cursor 2.0: Multi-Agent AI Code Editor</h2>
@@ -344,7 +516,7 @@
         </article>
 
         <!-- MCP Article -->
-        <article class="article">
+        <article class="article" id="mcp">
             <div class="article-header">
                 <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=400&fit=crop" alt="MCP" class="article-image">
                 <h2 class="article-title">Model Context Protocol (MCP)</h2>
@@ -388,7 +560,7 @@
         </article>
 
         <!-- Multi-Agent Frameworks Article -->
-        <article class="article">
+        <article class="article" id="multi-agent">
             <div class="article-header">
                 <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&h=400&fit=crop" alt="Multi-Agent" class="article-image">
                 <h2 class="article-title">Multi-Agent Frameworks</h2>
